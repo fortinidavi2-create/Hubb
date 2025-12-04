@@ -178,6 +178,45 @@
             text-decoration: underline;
         }
 
+        .email-form {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 8px;
+            margin-top: 15px;
+        }
+
+        .email-input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 0.95em;
+            margin-bottom: 10px;
+        }
+
+        .email-submit {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            width: 100%;
+            font-size: 0.95em;
+            transition: transform 0.2s;
+        }
+
+        .email-submit:hover {
+            transform: translateY(-2px);
+        }
+
+        .mensagem {
+            margin-top: 10px;
+            font-size: 0.85em;
+            min-height: 20px;
+        }
+
         @media (max-width: 600px) {
             .container {
                 padding: 30px 20px;
@@ -199,7 +238,7 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">🐧</div>
+        <div class="logo">��</div>
         <h1>HubbOS</h1>
         <p class="subtitle">Sistema Operacional Linux 100% Compilado do Zero</p>
 
@@ -268,6 +307,15 @@
         <div class="footer">
             <p>Desenvolvido com ❤️ por <a href="https://github.com/fortinidavi2-create" class="github-link">@fortinidavi2-create</a></p>
             <p><a href="https://github.com/fortinidavi2-create/Hubb" class="github-link">Ver no GitHub</a></p>
+            
+            <div class="email-form">
+                <p style="margin-bottom: 10px; color: #333;">📧 Receber link de download por email:</p>
+                <form id="emailForm" onsubmit="enviarEmail(event)">
+                    <input type="email" id="emailInput" class="email-input" placeholder="seu@email.com" required>
+                    <button type="submit" class="email-submit">Enviar Link</button>
+                </form>
+                <p id="mensagem" class="mensagem"></p>
+            </div>
         </div>
     </div>
 
@@ -288,7 +336,6 @@
             navigator.clipboard.writeText(text).then(() => {
                 alert('✅ Copiado para a área de transferência!');
             }).catch(() => {
-                // Fallback para navegadores antigos
                 const textarea = document.createElement('textarea');
                 textarea.value = text;
                 document.body.appendChild(textarea);
@@ -296,6 +343,43 @@
                 document.execCommand('copy');
                 document.body.removeChild(textarea);
                 alert('✅ Copiado para a área de transferência!');
+            });
+        }
+
+        function enviarEmail(event) {
+            event.preventDefault();
+            const email = document.getElementById('emailInput').value;
+            const mensagem = document.getElementById('mensagem');
+            
+            mensagem.style.color = '#667eea';
+            mensagem.textContent = '⏳ Enviando...';
+            
+            fetch('https://formsubmit.co/ajax/samuelfortininao@gmail.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    '_captcha': false,
+                    'email_usuario': email,
+                    'mensagem': 'Link para baixar HubbOS.iso',
+                    'download': 'https://github.com/fortinidavi2-create/Hubb/releases/download/v1.0/HubbOS.iso',
+                    'sha256': '26bf3a7f316cea947c64cd691106144da9ab9dcec6ffd640c245fb3047eaa0e2'
+                })
+            })
+            .then(response => {
+                if (response.ok) {
+                    mensagem.style.color = '#28a745';
+                    mensagem.textContent = '✅ Enviado! Verifique seu email';
+                    document.getElementById('emailInput').value = '';
+                    setTimeout(() => { mensagem.textContent = ''; }, 5000);
+                } else {
+                    throw new Error('Erro');
+                }
+            })
+            .catch(error => {
+                mensagem.style.color = '#dc3545';
+                mensagem.textContent = '❌ Erro ao enviar. Tente novamente!';
             });
         }
     </script>
