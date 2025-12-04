@@ -1,0 +1,10 @@
+#!/bin/bash
+echo "====================================="
+echo "  Bem-vindo ao HubbOS 1.0"
+echo "====================================="
+echo ""
+echo "Sistema compilado com:"
+echo "- Linux Kernel 6.6.1"
+echo "- Bash 5.2.21"
+echo ""
+/bin/bash

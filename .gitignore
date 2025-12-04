@@ -1,0 +1,29 @@
+# Arquivos grandes (ISO e imagens)
+*.iso
+*.cpio
+*.img
+
+# Diretórios de build e compilação
+build/
+sources/*.tar.gz
+
+# Dependências do sistema
+rootfs/lib/
+rootfs/usr/lib/
+rootfs/lib64/
+
+# Arquivos de cache
+*.o
+*.a
+*.so
+*.so.*
+*.pyc
+__pycache__/
+
+# Editor e IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
