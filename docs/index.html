@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HubbOS - Download</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .container {
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            padding: 50px;
+            max-width: 600px;
+            width: 100%;
+            text-align: center;
+            animation: slideIn 0.5s ease-out;
+        }
+
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .logo {
+            width: 100px;
+            height: 100px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 30px;
+            font-size: 40px;
+            color: white;
+        }
+
+        h1 {
+            color: #333;
+            margin-bottom: 10px;
+            font-size: 2.5em;
+        }
+
+        .subtitle {
+            color: #666;
+            margin-bottom: 30px;
+            font-size: 1.1em;
+        }
+
+        .info-box {
+            background: #f5f5f5;
+            border-left: 4px solid #667eea;
+            padding: 15px;
+            margin: 20px 0;
+            text-align: left;
+            border-radius: 5px;
+        }
+
+        .info-box strong {
+            color: #667eea;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.1em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: transform 0.3s, box-shadow 0.3s;
+            margin: 20px 0;
+            display: inline-block;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .download-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
+        }
+
+        .download-btn:active {
+            transform: translateY(0);
+        }
+
+        .checksum-section {
+            margin-top: 30px;
+            text-align: left;
+        }
+
+        .checksum-box {
+            background: #f9f9f9;
+            padding: 15px;
+            border-radius: 5px;
+            margin: 10px 0;
+            font-family: 'Courier New', monospace;
+            font-size: 0.85em;
+            word-break: break-all;
+            border: 1px solid #eee;
+        }
+
+        .copy-btn {
+            background: #667eea;
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.9em;
+            margin-top: 10px;
+        }
+
+        .copy-btn:hover {
+            background: #764ba2;
+        }
+
+        .specs {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin: 25px 0;
+        }
+
+        .spec-item {
+            background: #f5f5f5;
+            padding: 15px;
+            border-radius: 5px;
+        }
+
+        .spec-item strong {
+            color: #667eea;
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .spec-item span {
+            color: #666;
+            font-size: 0.95em;
+        }
+
+        .footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #eee;
+            color: #999;
+            font-size: 0.9em;
+        }
+
+        .github-link {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .github-link:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 30px 20px;
+            }
+
+            h1 {
+                font-size: 1.8em;
+            }
+
+            .specs {
+                grid-template-columns: 1fr;
+            }
+
+            .download-btn {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🐧</div>
+        <h1>HubbOS</h1>
+        <p class="subtitle">Sistema Operacional Linux 100% Compilado do Zero</p>
+
+        <div class="info-box">
+            <strong>Kernel:</strong> Linux 6.6.1 (x86_64)<br>
+            <strong>Shell:</strong> Bash 5.2.21<br>
+            <strong>Bootloader:</strong> GRUB 2.12
+        </div>
+
+        <div class="specs">
+            <div class="spec-item">
+                <strong>Tamanho</strong>
+                <span>480 MB</span>
+            </div>
+            <div class="spec-item">
+                <strong>Formato</strong>
+                <span>ISO 9660</span>
+            </div>
+            <div class="spec-item">
+                <strong>Arquitetura</strong>
+                <span>x86_64</span>
+            </div>
+            <div class="spec-item">
+                <strong>Status</strong>
+                <span>✅ Bootável</span>
+            </div>
+        </div>
+
+        <a href="https://github.com/fortinidavi2-create/Hubb/releases/download/v1.0/HubbOS.iso" class="download-btn">
+            ⬇️ Baixar ISO (480 MB)
+        </a>
+
+        <div class="checksum-section">
+            <h3 style="color: #333; margin-bottom: 10px;">Verificar Integridade</h3>
+            
+            <div>
+                <strong style="color: #667eea;">SHA256:</strong>
+                <div class="checksum-box" id="sha256">26bf3a7f316cea947c64cd691106144da9ab9dcec6ffd640c245fb3047eaa0e2</div>
+                <button class="copy-btn" onclick="copySHA256()">Copiar SHA256</button>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <strong style="color: #667eea;">SHA1:</strong>
+                <div class="checksum-box" id="sha1">064ce01e81ca2b4a54d3fd28e14ca88b12c8f4e7</div>
+                <button class="copy-btn" onclick="copySHA1()">Copiar SHA1</button>
+            </div>
+
+            <div style="margin-top: 15px;">
+                <strong style="color: #667eea;">MD5:</strong>
+                <div class="checksum-box" id="md5">b767ea79a4617438b111812ba3f58822</div>
+                <button class="copy-btn" onclick="copyMD5()">Copiar MD5</button>
+            </div>
+        </div>
+
+        <div style="margin-top: 20px; text-align: left; font-size: 0.9em; color: #666; background: #f0f0f0; padding: 15px; border-radius: 5px;">
+            <strong>Como verificar no Linux/Mac:</strong>
+            <code style="display: block; margin: 10px 0; background: white; padding: 10px; border-radius: 3px;">
+                sha256sum HubbOS.iso
+            </code>
+            <strong>Como verificar no Windows:</strong>
+            <code style="display: block; margin: 10px 0; background: white; padding: 10px; border-radius: 3px;">
+                certUtil -hashfile HubbOS.iso SHA256
+            </code>
+        </div>
+
+        <div class="footer">
+            <p>Desenvolvido com ❤️ por <a href="https://github.com/fortinidavi2-create" class="github-link">@fortinidavi2-create</a></p>
+            <p><a href="https://github.com/fortinidavi2-create/Hubb" class="github-link">Ver no GitHub</a></p>
+        </div>
+    </div>
+
+    <script>
+        function copySHA256() {
+            copyToClipboard('26bf3a7f316cea947c64cd691106144da9ab9dcec6ffd640c245fb3047eaa0e2');
+        }
+
+        function copySHA1() {
+            copyToClipboard('064ce01e81ca2b4a54d3fd28e14ca88b12c8f4e7');
+        }
+
+        function copyMD5() {
+            copyToClipboard('b767ea79a4617438b111812ba3f58822');
+        }
+
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(() => {
+                alert('✅ Copiado para a área de transferência!');
+            }).catch(() => {
+                // Fallback para navegadores antigos
+                const textarea = document.createElement('textarea');
+                textarea.value = text;
+                document.body.appendChild(textarea);
+                textarea.select();
+                document.execCommand('copy');
+                document.body.removeChild(textarea);
+                alert('✅ Copiado para a área de transferência!');
+            });
+        }
+    </script>
+</body>
+</html>
